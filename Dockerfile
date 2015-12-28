@@ -2,10 +2,11 @@
 FROM      debian:jessie
 
 RUN       apt-get update && \
-          apt-get install -y nginx nginx-extras && \
+          apt-get install -y --force-yes nginx nginx-extras && \
           rm -rf /var/lib/apt/lists/*
     
 COPY      set_htpasswd.sh /set_htpasswd.sh
+COPY      crypt.pl /crypt.pl
 COPY      webdav-site.conf /etc/nginx/sites-enabled/
 RUN       rm /etc/nginx/sites-enabled/default
 # Overwrite mimetypes to add rss format.
