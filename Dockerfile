@@ -2,7 +2,7 @@
 FROM      debian:jessie
 
 RUN       apt-get update && \
-          apt-get install -y nginx nginx-extras && \
+          apt-get install -y nginx nginx-extras apache2-utils && \
           rm -rf /var/lib/apt/lists/*
     
 COPY      set_htpasswd.sh /set_htpasswd.sh
